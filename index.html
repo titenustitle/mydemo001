@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Saver</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="mood-bar"></div>
+    <div class="mood-indicator">
+        <i class="fas fa-smile"></i>
+        <span>Your Mood Today</span>
+    </div>
+    <div class="background-pattern"></div>
+    <div class="background-gradient"></div>
+    
+    <header>
+        <h1>Memory Saver</h1>
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="search" id="searchInput" placeholder="Search memories...">
+        </div>
+    </header>
+
+    <main>
+        <div class="add-item-container">
+            <button id="createPostBtn" class="add-btn primary-btn">
+                <i class="fas fa-pen"></i>
+                Create Post
+            </button>
+            <button id="addLinkBtn" class="add-btn">
+                <i class="fas fa-link"></i>
+                Add Link
+            </button>
+            <button id="addPhotoBtn" class="add-btn">
+                <i class="fas fa-image"></i>
+                Add Photo
+            </button>
+            <button id="addFileBtn" class="add-btn">
+                <i class="fas fa-file"></i>
+                Add File
+            </button>
+        </div>
+
+        <section class="recent-section">
+            <div class="section-header">
+                <h2><i class="fas fa-clock"></i> Last 7 Days</h2>
+                <div class="view-all">
+                    <a href="#" class="view-all-btn">View All</a>
+                </div>
+            </div>
+            <div class="items-container recent-items" id="recentItemsContainer">
+                <!-- Recent items will be dynamically added here -->
+            </div>
+        </section>
+
+        <section class="all-items-section">
+            <div class="section-header">
+                <h2><i class="fas fa-archive"></i> All Memories</h2>
+            </div>
+            <div class="items-container" id="itemsContainer">
+                <!-- All items will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Add New Item</h2>
+            <form id="itemForm">
+                <!-- Form fields will be dynamically added based on item type -->
+            </form>
+        </div>
+    </div>
+
+    <script src="js/db.js"></script>
+    <script src="js/fileManager.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize the application
+            window.addEventListener('load', () => {
+                // Add a small delay to ensure all resources are loaded
+                setTimeout(() => {
+                    if (typeof ui !== 'undefined') {
+                        ui.initializeApp();
+                    }
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html> 
